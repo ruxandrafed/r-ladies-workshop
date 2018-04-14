@@ -43,6 +43,31 @@ nrow(titanic) # how many observations/rows
 names(titanic) # what variables we're working with
 dim(titanic) # no. of col & rows
 summary(titanic) # statistics summary
-levels(titanic$Sex) # explore a variable
+levels(titanic$Sex) # explore a variable (only works for factors, not numeric)
 levels(titanic$Embarked)
 
+# read_csv loads characters as chr and not factors, hence levels won't work, unless we convert stuff to factor
+# levels(factor(titanic$Sex))
+
+# Might need this for the pipe operator etc. (includes more packages)
+install.packages("tidyverse")
+
+# Dplyr package
+
+# Select - picking variables - create a subset of data
+# %>% -> pipe stuff
+titanic %>%
+  select(Name)
+
+titanic %>%
+  select(Name, Age, Sex)
+
+titanic %>%
+  select(starts_with("P"))
+
+titanic %>%
+  select(ends_with("e"))
+
+# Store subset in a new object
+passenger_info <- titanic %>%
+  select(Name, Age, Sex)
