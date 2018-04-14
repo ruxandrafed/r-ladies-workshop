@@ -28,3 +28,21 @@ length(heights_cm)
 
 library(dplyr)
 library(ggplot2)
+
+# Loading datasets
+titanic <- read.csv("data/titanic.csv")
+
+# Convert dataset to a better format for the console
+titanic <- as_tibble(titanic)
+
+# Inspecting a dataframe
+str(titanic)
+glimpse(titanic)
+head(titanic) # prints top 6 rows
+nrow(titanic) # how many observations/rows
+names(titanic) # what variables we're working with
+dim(titanic) # no. of col & rows
+summary(titanic) # statistics summary
+levels(titanic$Sex) # explore a variable
+levels(titanic$Embarked)
+
